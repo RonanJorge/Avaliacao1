@@ -11,7 +11,7 @@
 		<table border="1">
 			<tr>
 				<td><a href="index">INICIO</a></td>
-				<td><a href="pessoa">PESSOA</a></td>
+				<td><a href="aluno">ALUNO</a></td>
 				<td><a href="produto">PRODUTO</a></td>
 			</tr>
 		</table>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Aula Spring Web</title>
+<title>Avaliacao 1</title>
 </head>
 <body>
 	<div align="center">
@@ -12,7 +12,7 @@
 	</div>
 	<br />
 	<div align="center">
-		<h1>Primeira Aula Spring Web</h1>
+		<h1>Primeira Avaliacao</h1>
 		<br />
 	</div>
 </body>
