@@ -12,7 +12,7 @@
 			<tr>
 				<td><a href="index">INICIO</a></td>
 				<td><a href="aluno">ALUNO</a></td>
-				<td><a href="produto">PRODUTO</a></td>
+				<td><a href="curso">CURSO</a></td>
 			</tr>
 		</table>
 	</div>
