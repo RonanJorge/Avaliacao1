@@ -13,6 +13,7 @@
 				<td><a href="index">INICIO</a></td>
 				<td><a href="aluno">ALUNO</a></td>
 				<td><a href="curso">CURSO</a></td>
+				<td><a href="disciplina">DISCIPLINA</a></td>
 			</tr>
 		</table>
 	</div>
