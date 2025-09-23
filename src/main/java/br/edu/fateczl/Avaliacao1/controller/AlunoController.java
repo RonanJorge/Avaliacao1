@@ -28,7 +28,7 @@ public class AlunoController {
 			@RequestParam Map<String, String> params,
 			ModelMap model) {
 		String acao = params.get("acao");
-		String id = params.get("id");
+		String cpf = params.get("cpf");
 		
 		Aluno a = new Aluno();
 		String erro = "";
@@ -36,7 +36,7 @@ public class AlunoController {
 		
 		try {
 			if (acao != null) {
-				a.setId(Integer.parseInt(id));
+				a.setCpf(Integer.parseInt(cpf));
 				
 				if (acao.equalsIgnoreCase("excluir")) {
 					aDao.excluir(a);
@@ -69,7 +69,7 @@ public class AlunoController {
 		String cmd = "";
 		
 		try {
-			String id = params.get("id");
+			String cpf = params.get("cpf");
 			String nome = params.get("nome");
 			String nomeSocial = params.get("nomeSocial");
 			String nascimento = params.get("nascimento");
@@ -77,7 +77,7 @@ public class AlunoController {
 			cmd = params.get("botao");
 			
 			if (!cmd.equalsIgnoreCase("Listar")) {
-				a.setId(Integer.parseInt(id));
+				a.setCpf(Integer.parseInt(cpf));
 			}
 			if (cmd.equalsIgnoreCase("Inserir") || cmd.equalsIgnoreCase("Atualizar")) {
 				a.setNome(nome);

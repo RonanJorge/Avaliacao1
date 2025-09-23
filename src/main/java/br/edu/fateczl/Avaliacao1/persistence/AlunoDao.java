@@ -24,12 +24,12 @@ public class AlunoDao implements ICrud<Aluno> {
 	@Override
 	public Aluno buscar(Aluno aluno) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "SELECT id, nome, nomeSocial, nascimento, email FROM aluno WHERE id = ?";
+		String sql = "SELECT cpf, nome, nomeSocial, nascimento, email FROM aluno WHERE cpf = ?";
 		PreparedStatement ps = c.prepareStatement(sql);
-		ps.setInt(1,aluno.getId());
+		ps.setInt(1,aluno.getCpf());
 		ResultSet rs = ps.executeQuery();
 		if (rs.next()) {
-			aluno.setId(rs.getInt("id"));
+			aluno.setCpf(rs.getInt("cpf"));
 			aluno.setNome(rs.getString("nome"));
 			aluno.setNomeSocial(rs.getString("nomeSocial"));
 			aluno.setNascimento(LocalDate.parse(rs.getString("nascimento")));
@@ -44,14 +44,14 @@ public class AlunoDao implements ICrud<Aluno> {
 	public List<Aluno> listar() throws SQLException, ClassNotFoundException {
 		List<Aluno> alunos = new ArrayList<>();
 		Connection c = gDao.getConnection();
-		String sql = "SELECT id, nome, nomeSocial, nascimento,"
+		String sql = "SELECT cpf, nome, nomeSocial, nascimento,"
 				+ " CONVERT(CHAR(10), nascimento, 103) AS dtNasc, email "
 				+ " FROM aluno";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
 			Aluno aluno = new Aluno();
-			aluno.setId(rs.getInt("id"));
+			aluno.setCpf(rs.getInt("cpf"));
 			aluno.setNome(rs.getString("nome"));
 			aluno.setNomeSocial(rs.getString("nomeSocial"));
 			aluno.setNascimento(LocalDate.parse(rs.getString("nascimento")));
@@ -72,7 +72,7 @@ public class AlunoDao implements ICrud<Aluno> {
 		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "I");
-		cs.setInt(2, aluno.getId());
+		cs.setInt(2, aluno.getCpf());
 		cs.setString(3, aluno.getNome());
 		cs.setString(4, aluno.getNomeSocial());
 		cs.setString(5, aluno.getNascimento().toString());
@@ -92,7 +92,7 @@ public class AlunoDao implements ICrud<Aluno> {
 		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "U");
-		cs.setInt(2, aluno.getId());
+		cs.setInt(2, aluno.getCpf());
 		cs.setString(3, aluno.getNome());
 		cs.setString(4, aluno.getNomeSocial());
 		cs.setString(5, aluno.getNascimento().toString());
@@ -113,7 +113,7 @@ public class AlunoDao implements ICrud<Aluno> {
 		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "D");
-		cs.setInt(2, aluno.getId());
+		cs.setInt(2, aluno.getCpf());
 		cs.setNull(3, Types.VARCHAR);
 		cs.setNull(4, Types.VARCHAR);
 		cs.setNull(5, Types.VARCHAR);

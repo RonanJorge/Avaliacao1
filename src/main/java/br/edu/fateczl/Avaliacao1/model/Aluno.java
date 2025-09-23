@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Aluno {
 
-	private int id;
+	private int cpf;
 	private String nome;
 	private String nomeSocial;
 	private LocalDate nascimento;

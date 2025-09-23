@@ -23,8 +23,8 @@
 				<tr>
 					<td colspan="3">
 						<input type="number" min="1" step="1"
-						id="id" name="id" placeholder="#ID"
-						value='<c:out value="${aluno.id }"/>'
+						id="cpf" name="cpf" placeholder="CPF"
+						value='<c:out value="${aluno.cpf }"/>'
 						class="input-group input-group-lg" >
 					</td>
 					<td colspan="1">
@@ -106,7 +106,7 @@
 			<table class="table table-dark table-striped">
 				<thead>
 					<tr>
-						<th>#ID</th>
+						<th>CPF</th>
 						<th>Nome</th>
 						<th>Nome Social</th>
 						<th>Dt Nasc</th>
@@ -118,13 +118,13 @@
 				<tbody>
 					<c:forEach var="a" items="${alunos }">
 						<tr>
-							<td>${a.id }</td>
+							<td>${a.cpf }</td>
 							<td>${a.nome }</td>
 							<td>${a.nomeSocial }</td>
 							<td>${a.dtNasc }</td>
 							<td>${a.email }</td>
-							<td><a href="aluno?acao=editar&id=${a.id }">EDITAR</a></td>
-							<td><a href="aluno?acao=excluir&id=${a.id }">EXCLUIR</a></td>
+							<td><a href="aluno?acao=editar&cpf=${a.cpf }">EDITAR</a></td>
+							<td><a href="aluno?acao=excluir&id=${a.cpf }">EXCLUIR</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
