@@ -66,6 +66,22 @@
 					</td>
 				</tr>
 				<tr>
+					<td colspan="4">
+						<input type="number" 
+						id="anoIngresso" name="anoIngresso" placeholder="Ano de Ingresso"
+						value='<c:out value="${aluno.anoIngresso }"/>'
+						class="input-group input-group-lg">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<input type="number" 
+						id="semestreIngresso" name="semestreIngresso" placeholder="Semestre de Ingresso"
+						value='<c:out value="${aluno.semestreIngresso }"/>'
+						class="input-group input-group-lg">
+					</td>
+				</tr>
+				<tr>
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Inserir"
@@ -111,6 +127,8 @@
 						<th>Nome Social</th>
 						<th>Dt Nasc</th>
 						<th>E-mail</th>
+						<th>Ano de Ingresso</th>
+						<th>Semestre de Ingresso</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -123,6 +141,8 @@
 							<td>${a.nomeSocial }</td>
 							<td>${a.dtNasc }</td>
 							<td>${a.email }</td>
+							<td>${a.anoIngresso }</td>
+							<td>${a.semestreIngresso }</td>
 							<td><a href="aluno?acao=editar&cpf=${a.cpf }">EDITAR</a></td>
 							<td><a href="aluno?acao=excluir&cpf=${a.cpf }">EXCLUIR</a></td>
 						</tr>
