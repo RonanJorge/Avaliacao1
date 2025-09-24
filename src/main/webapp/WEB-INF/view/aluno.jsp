@@ -124,7 +124,7 @@
 							<td>${a.dtNasc }</td>
 							<td>${a.email }</td>
 							<td><a href="aluno?acao=editar&cpf=${a.cpf }">EDITAR</a></td>
-							<td><a href="aluno?acao=excluir&id=${a.cpf }">EXCLUIR</a></td>
+							<td><a href="aluno?acao=excluir&cpf=${a.cpf }">EXCLUIR</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

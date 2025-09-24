@@ -11,12 +11,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Aluno {
 
-	private int cpf;
+	private long cpf;
 	private String nome;
 	private String nomeSocial;
 	private LocalDate nascimento;
 	private String dtNasc;
 	private String email;
+	private int anoIngresso;
+	private int semestreIngresso;
 	
 
 }

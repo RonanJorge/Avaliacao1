@@ -36,7 +36,7 @@ public class AlunoController {
 		
 		try {
 			if (acao != null) {
-				a.setCpf(Integer.parseInt(cpf));
+				a.setCpf(Long.parseLong(cpf));
 				
 				if (acao.equalsIgnoreCase("excluir")) {
 					aDao.excluir(a);
@@ -74,16 +74,20 @@ public class AlunoController {
 			String nomeSocial = params.get("nomeSocial");
 			String nascimento = params.get("nascimento");
 			String email =  params.get("email");
+			String anoIngresso = params.get("anoIngresso");
+			String semestreIngresso = params.get("semestreIngresso");
 			cmd = params.get("botao");
 			
 			if (!cmd.equalsIgnoreCase("Listar")) {
-				a.setCpf(Integer.parseInt(cpf));
+				a.setCpf(Long.parseLong(cpf));
 			}
 			if (cmd.equalsIgnoreCase("Inserir") || cmd.equalsIgnoreCase("Atualizar")) {
 				a.setNome(nome);
 				a.setNomeSocial(nomeSocial);
 				a.setNascimento(LocalDate.parse(nascimento));
 				a.setEmail(email);
+				a.setAnoIngresso(Integer.parseInt(anoIngresso));
+				a.setSemestreIngresso(Integer.parseInt(semestreIngresso));
 			}
 		
 			if (cmd.equalsIgnoreCase("Inserir")) {
