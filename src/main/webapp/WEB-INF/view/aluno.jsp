@@ -30,7 +30,7 @@
 					<td colspan="1">
 						<input type="submit"
 						id="botao" name="botao" value="Buscar"
-						class="btn btn-dark">
+						class="btn btn-primary">
 					</td>				
 				</tr>		
 				<tr>
@@ -67,6 +67,22 @@
 				</tr>
 				<tr>
 					<td colspan="4">
+						<input type="text" 
+						id="emailCorporativo" name="emailCorporativo" placeholder="E-mail Corporativo"
+						value='<c:out value="${aluno.emailCorporativo }"/>'
+						class="input-group input-group-lg">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<input type="date" 
+						id="conclusaoEM" name="conclusaoEM"
+						value='<c:out value="${aluno.conclusaoEM }"/>'
+						class="input-group input-group-lg">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
 						<input type="number" 
 						id="anoIngresso" name="anoIngresso" placeholder="Ano de Ingresso"
 						value='<c:out value="${aluno.anoIngresso }"/>'
@@ -85,22 +101,22 @@
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Inserir"
-						class="btn btn-dark">
+						class="btn btn-success">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Atualizar"
-						class="btn btn-dark">
+						class="btn btn-warning">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Excluir"
-						class="btn btn-dark">
+						class="btn btn-danger">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Listar"
-						class="btn btn-dark">
+						class="btn btn-info">
 					</td>								
 				</tr>
 			</table>
@@ -127,6 +143,8 @@
 						<th>Nome Social</th>
 						<th>Dt Nasc</th>
 						<th>E-mail</th>
+						<th>E-mail Corporativo</th>
+						<th>Conclusao do Segundo Grau</th>
 						<th>Ano de Ingresso</th>
 						<th>Semestre de Ingresso</th>
 						<th></th>
@@ -141,6 +159,8 @@
 							<td>${a.nomeSocial }</td>
 							<td>${a.dtNasc }</td>
 							<td>${a.email }</td>
+							<td>${a.emailCorporativo }</td>
+							<td>${a.conclEM }</td>
 							<td>${a.anoIngresso }</td>
 							<td>${a.semestreIngresso }</td>
 							<td><a href="aluno?acao=editar&cpf=${a.cpf }">EDITAR</a></td>

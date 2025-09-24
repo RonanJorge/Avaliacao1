@@ -17,6 +17,9 @@ public class Aluno {
 	private LocalDate nascimento;
 	private String dtNasc;
 	private String email;
+	private String emailCorporativo;
+	private LocalDate conclusaoEM;
+	private String conclEM;
 	private int anoIngresso;
 	private int semestreIngresso;
 	

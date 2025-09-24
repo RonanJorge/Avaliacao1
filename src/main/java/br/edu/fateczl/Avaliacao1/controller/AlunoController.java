@@ -74,6 +74,8 @@ public class AlunoController {
 			String nomeSocial = params.get("nomeSocial");
 			String nascimento = params.get("nascimento");
 			String email =  params.get("email");
+			String emailCorporativo =  params.get("emailCorporativo");
+			String conclusaoEM = params.get("conclusaoEM");
 			String anoIngresso = params.get("anoIngresso");
 			String semestreIngresso = params.get("semestreIngresso");
 			cmd = params.get("botao");
@@ -86,6 +88,8 @@ public class AlunoController {
 				a.setNomeSocial(nomeSocial);
 				a.setNascimento(LocalDate.parse(nascimento));
 				a.setEmail(email);
+				a.setEmailCorporativo(emailCorporativo);
+				a.setConclusaoEM(LocalDate.parse(conclusaoEM));
 				a.setAnoIngresso(Integer.parseInt(anoIngresso));
 				a.setSemestreIngresso(Integer.parseInt(semestreIngresso));
 			}
