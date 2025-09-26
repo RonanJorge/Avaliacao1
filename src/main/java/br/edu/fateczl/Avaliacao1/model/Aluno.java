@@ -22,6 +22,7 @@ public class Aluno {
 	private String conclEM;
 	private int anoIngresso;
 	private int semestreIngresso;
-	
+	private int anoLimite;
+	private int semestreLimite;
 
 }

@@ -98,6 +98,22 @@
 					</td>
 				</tr>
 				<tr>
+					<td colspan="4">
+						<input type="hidden" 
+						id="anoLimite" name="anoLimite" placeholder="Ano Limite"
+						value='<c:out value="0" />'
+						class="input-group input-group-lg" readonly>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<input type="hidden" 
+						id="semestreLimite" name="semestreLimite" placeholder="Semestre Limite"
+						value='<c:out value="0" />'
+						class="input-group input-group-lg" readonly>
+					</td>
+				</tr>
+				<tr>
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Inserir"
@@ -147,6 +163,8 @@
 						<th>Conclusao do Segundo Grau</th>
 						<th>Ano de Ingresso</th>
 						<th>Semestre de Ingresso</th>
+						<th>Ano Limite</th>
+						<th>Semestre Limite</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -163,6 +181,8 @@
 							<td>${a.conclEM }</td>
 							<td>${a.anoIngresso }</td>
 							<td>${a.semestreIngresso }</td>
+							<td>${a.anoLimite}</td>
+							<td>${a.semestreLimite }</td>
 							<td><a href="aluno?acao=editar&cpf=${a.cpf }">EDITAR</a></td>
 							<td><a href="aluno?acao=excluir&cpf=${a.cpf }">EXCLUIR</a></td>
 						</tr>

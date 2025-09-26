@@ -78,6 +78,8 @@ public class AlunoController {
 			String conclusaoEM = params.get("conclusaoEM");
 			String anoIngresso = params.get("anoIngresso");
 			String semestreIngresso = params.get("semestreIngresso");
+			String anoLimite = params.get("anoLimite");
+			String semestreLimite = params.get("semestreLimite");
 			cmd = params.get("botao");
 			
 			if (!cmd.equalsIgnoreCase("Listar")) {
@@ -92,6 +94,8 @@ public class AlunoController {
 				a.setConclusaoEM(LocalDate.parse(conclusaoEM));
 				a.setAnoIngresso(Integer.parseInt(anoIngresso));
 				a.setSemestreIngresso(Integer.parseInt(semestreIngresso));
+				a.setAnoLimite(Integer.parseInt(anoLimite));
+				a.setSemestreLimite(Integer.parseInt(semestreLimite));
 			}
 		
 			if (cmd.equalsIgnoreCase("Inserir")) {
