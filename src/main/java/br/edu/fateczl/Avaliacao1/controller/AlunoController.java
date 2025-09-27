@@ -80,6 +80,7 @@ public class AlunoController {
 			String semestreIngresso = params.get("semestreIngresso");
 			String anoLimite = params.get("anoLimite");
 			String semestreLimite = params.get("semestreLimite");
+			String ra = params.get("ra");
 			cmd = params.get("botao");
 			
 			if (!cmd.equalsIgnoreCase("Listar")) {
@@ -96,6 +97,7 @@ public class AlunoController {
 				a.setSemestreIngresso(Integer.parseInt(semestreIngresso));
 				a.setAnoLimite(Integer.parseInt(anoLimite));
 				a.setSemestreLimite(Integer.parseInt(semestreLimite));
+				a.setRa(ra);
 			}
 		
 			if (cmd.equalsIgnoreCase("Inserir")) {

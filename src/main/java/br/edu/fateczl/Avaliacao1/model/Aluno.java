@@ -24,5 +24,6 @@ public class Aluno {
 	private int semestreIngresso;
 	private int anoLimite;
 	private int semestreLimite;
+	private String ra;
 
 }

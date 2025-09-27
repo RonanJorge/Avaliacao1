@@ -114,6 +114,14 @@
 					</td>
 				</tr>
 				<tr>
+					<td colspan="4">
+						<input type="hidden" 
+						id="ra" name="ra" placeholder="#RA"
+						value='<c:out value="" />'
+						class="input-group input-group-lg" readonly>
+					</td>
+				</tr>
+				<tr>
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Inserir"
@@ -165,6 +173,7 @@
 						<th>Semestre de Ingresso</th>
 						<th>Ano Limite</th>
 						<th>Semestre Limite</th>
+						<th>RA</th>
 						<th></th>
 						<th></th>
 					</tr>
@@ -183,6 +192,7 @@
 							<td>${a.semestreIngresso }</td>
 							<td>${a.anoLimite}</td>
 							<td>${a.semestreLimite }</td>
+							<td>${a.ra }</td>
 							<td><a href="aluno?acao=editar&cpf=${a.cpf }">EDITAR</a></td>
 							<td><a href="aluno?acao=excluir&cpf=${a.cpf }">EXCLUIR</a></td>
 						</tr>
