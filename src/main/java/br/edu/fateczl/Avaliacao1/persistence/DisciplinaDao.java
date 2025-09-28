@@ -23,7 +23,7 @@ public class DisciplinaDao implements ICrud<Disciplina> {
 	@Override
 	public Disciplina buscar(Disciplina disciplina) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "SELECT codigoDisc, codigoCurso, nome, horasSemanais, conteudos FROM disciplina WHERE codigoDisc = ?";
+		String sql = "SELECT codigoDisc, codigoCurso, nome, inicio, horasSemanais, conteudos FROM disciplina WHERE codigoDisc = ?";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ps.setInt(1,disciplina.getCodigoDisc());
 		ResultSet rs = ps.executeQuery();
@@ -31,6 +31,7 @@ public class DisciplinaDao implements ICrud<Disciplina> {
 			disciplina.setCodigoDisc(rs.getInt("codigoDisc"));
 			disciplina.setCodigoCurso(rs.getInt("codigoCurso"));
 			disciplina.setNome(rs.getString("nome"));
+			disciplina.setInicio(rs.getTime("inicio").toLocalTime());
 			disciplina.setHorasSemanais(rs.getInt("horasSemanais"));
 			disciplina.setConteudos(rs.getString("conteudos"));
 		}
@@ -43,7 +44,7 @@ public class DisciplinaDao implements ICrud<Disciplina> {
 	public List<Disciplina> listar() throws SQLException, ClassNotFoundException {
 		List<Disciplina> disciplinas = new ArrayList<>();
 		Connection c = gDao.getConnection();
-		String sql = "SELECT codigoDisc, codigoCurso, nome, horasSemanais, conteudos FROM disciplina";
+		String sql = "SELECT codigoDisc, codigoCurso, nome, inicio, horasSemanais, conteudos FROM disciplina";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
@@ -51,6 +52,7 @@ public class DisciplinaDao implements ICrud<Disciplina> {
 			disciplina.setCodigoDisc(rs.getInt("codigoDisc"));
 			disciplina.setCodigoCurso(rs.getInt("codigoCurso"));
 			disciplina.setNome(rs.getString("nome"));
+			disciplina.setInicio(rs.getTime("inicio").toLocalTime());
 			disciplina.setHorasSemanais(rs.getInt("horasSemanais"));
 			disciplina.setConteudos(rs.getString("conteudos"));
 			
@@ -65,18 +67,19 @@ public class DisciplinaDao implements ICrud<Disciplina> {
 	@Override
 	public String inserir(Disciplina disciplina) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "{CALL sp_disciplina(?,?,?,?,?,?,?)}";
+		String sql = "{CALL sp_disciplina(?,?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "I");
 		cs.setInt(2, disciplina.getCodigoDisc());
 		cs.setInt(3, disciplina.getCodigoCurso());
 		cs.setString(4, disciplina.getNome());
-		cs.setInt(5, disciplina.getHorasSemanais());
-		cs.setString(6, disciplina.getConteudos());
-		cs.registerOutParameter(7, Types.VARCHAR);
+		cs.setTime(5, java.sql.Time.valueOf(disciplina.getInicio()));
+		cs.setInt(6, disciplina.getHorasSemanais());
+		cs.setString(7, disciplina.getConteudos());
+		cs.registerOutParameter(8, Types.VARCHAR);
 		cs.execute();
 		
-		String saida = cs.getString(7);
+		String saida = cs.getString(8);
 		cs.close();
 		
 		return saida;
@@ -85,18 +88,19 @@ public class DisciplinaDao implements ICrud<Disciplina> {
 	@Override
 	public String atualizar(Disciplina disciplina) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "{CALL sp_disciplina(?,?,?,?,?,?,?)}";
+		String sql = "{CALL sp_disciplina(?,?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "U");
 		cs.setInt(2, disciplina.getCodigoDisc());
 		cs.setInt(3, disciplina.getCodigoCurso());
 		cs.setString(4, disciplina.getNome());
-		cs.setInt(5, disciplina.getHorasSemanais());
-		cs.setString(6, disciplina.getConteudos());
-		cs.registerOutParameter(7, Types.VARCHAR);
+		cs.setTime(5,java.sql.Time.valueOf(disciplina.getInicio()));
+		cs.setInt(6, disciplina.getHorasSemanais());
+		cs.setString(7, disciplina.getConteudos());
+		cs.registerOutParameter(8, Types.VARCHAR);
 		cs.execute();
 		
-		String saida = cs.getString(7);
+		String saida = cs.getString(8);
 		cs.close();
 		
 		return saida;
@@ -106,7 +110,7 @@ public class DisciplinaDao implements ICrud<Disciplina> {
 	@Override
 	public String excluir(Disciplina disciplina) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "{CALL sp_disciplina(?,?,?,?,?,?,?)}";
+		String sql = "{CALL sp_disciplina(?,?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "D");
 		cs.setInt(2, disciplina.getCodigoDisc());
@@ -114,10 +118,11 @@ public class DisciplinaDao implements ICrud<Disciplina> {
 		cs.setNull(4, Types.VARCHAR);
 		cs.setNull(5, Types.VARCHAR);
 		cs.setNull(6, Types.VARCHAR);
-		cs.registerOutParameter(7, Types.VARCHAR);
+		cs.setNull(7, Types.VARCHAR);
+		cs.registerOutParameter(8, Types.VARCHAR);
 		cs.execute();
 		
-		String saida = cs.getString(7);
+		String saida = cs.getString(8);
 		cs.close();
 		
 		return saida;

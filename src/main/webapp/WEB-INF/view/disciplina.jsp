@@ -51,6 +51,14 @@
 				</tr>
 				<tr>
 					<td colspan="4">
+						<input type="time" 
+						id="inicio" name="inicio" placeholder="Inicio"
+						value='<c:out value="${disciplina.inicio }"/>'
+						class="input-group input-group-lg">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
 						<input type="number" 
 						id="horasSemanais" name="horasSemanais" placeholder="Horas Semanais"
 						value='<c:out value="${disciplina.horasSemanais }"/>'
@@ -109,6 +117,7 @@
 						<th>Codigo Disciplina</th>
 						<th>Codigo Curso</th>
 						<th>Nome</th>
+						<th>Início</th>
 						<th>Horas Semanais</th>
 						<th>Conteudos</th>
 						<th></th>
@@ -121,6 +130,7 @@
 							<td>${d.codigoDisc }</td>
 							<td>${d.codigoCurso }</td>
 							<td>${d.nome }</td>
+							<td>${d.inicio }</td>
 							<td>${d.horasSemanais }</td>
 							<td>${d.conteudos }</td>
 							<td><a href="disciplina?acao=editar&codigoDisc=${d.codigoDisc }">EDITAR</a></td>

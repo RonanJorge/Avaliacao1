@@ -1,6 +1,7 @@
 package br.edu.fateczl.Avaliacao1.controller;
 
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -71,6 +72,7 @@ public class DisciplinaController {
 			String codigoDisc = params.get("codigoDisc");
 			String codigoCurso = params.get("codigoCurso");
 			String nome = params.get("nome");
+			String inicio = params.get("inicio");
 			String horasSemanais = params.get("horasSemanais");
 			String conteudos = params.get("conteudos");
 			cmd = params.get("botao");
@@ -81,6 +83,7 @@ public class DisciplinaController {
 			if (cmd.equalsIgnoreCase("Inserir") || cmd.equalsIgnoreCase("Atualizar")) {
 				d.setCodigoCurso(Integer.parseInt(codigoCurso));
 				d.setNome(nome);
+				d.setInicio(LocalTime.parse(inicio));
 				d.setHorasSemanais(Integer.parseInt(horasSemanais));
 				d.setConteudos(conteudos);
 			}
