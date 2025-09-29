@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-<title>Consulta de Matrícula</title>
+<title>Matrícula</title>
 </head>
 <body>
     <div align="center">
@@ -16,7 +16,7 @@
     <br />
 
     <div class="container" align="center">
-        <h1>Consultar Matrícula</h1>
+        <h1>Efetuar Matrícula</h1>
         <br />
         <form action="matricula" method="post">
             <table>

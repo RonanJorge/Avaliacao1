@@ -97,8 +97,8 @@
 					</td>
 					<td colspan="4">
 						<input type="date" 
-						id="conclusaoEM" name="conclusaoEM"
-						value='<c:out value="${aluno.conclusaoEM }"/>'
+						id="conclusaoEM" name="conclusaoEM" 
+						value='<c:out value="${aluno.conclusaoEM }" />'
 						class="input-group input-group-lg">
 					</td>
 				</tr>
