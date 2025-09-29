@@ -15,12 +15,15 @@
 		<jsp:include page="menu.jsp" />
 	</div>
 	<br />
-	<div class="conteiner" align="center">
+	<div class="container" align="center">
 		<h1>Cadastro de Alunos</h1>
 		<br />
 		<form action="aluno" method="post">
 			<table>
 				<tr>
+					<td >
+						<label for="cpf">Cpf </label>
+					</td>
 					<td colspan="3">
 						<input type="number" min="1" step="1"
 						id="cpf" name="cpf" placeholder="CPF"
@@ -30,10 +33,13 @@
 					<td colspan="1">
 						<input type="submit"
 						id="botao" name="botao" value="Buscar"
-						class="btn btn-primary">
+						class="btn btn-dark">
 					</td>				
 				</tr>		
 				<tr>
+					<td >
+						<label for="nome">Nome </label>
+					</td>
 					<td colspan="4">
 						<input type="text" 
 						id="nome" name="nome" placeholder="Nome"
@@ -42,6 +48,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="nomeSocial">Nome Social </label>
+					</td>
 					<td colspan="4">
 						<input type="text" 
 						id="nomeSocial" name="nomeSocial" placeholder="Nome Social"
@@ -50,6 +59,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="nascimento">Data de Nascimento </label>
+					</td>
 					<td colspan="4">
 						<input type="date" 
 						id="nascimento" name="nascimento"
@@ -58,6 +70,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="email">Email </label>
+					</td>
 					<td colspan="4">
 						<input type="text" 
 						id="email" name="email" placeholder="E-mail"
@@ -66,6 +81,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="emailCorporativo">Email corporativo </label>
+					</td>
 					<td colspan="4">
 						<input type="text" 
 						id="emailCorporativo" name="emailCorporativo" placeholder="E-mail Corporativo"
@@ -74,6 +92,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="conclusaoEM">Data de Conclusao do 2o. grau </label>
+					</td>
 					<td colspan="4">
 						<input type="date" 
 						id="conclusaoEM" name="conclusaoEM"
@@ -82,6 +103,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="anoIngresso">Ano de Ingresso </label>
+					</td>
 					<td colspan="4">
 						<input type="number" 
 						id="anoIngresso" name="anoIngresso" placeholder="Ano de Ingresso"
@@ -90,10 +114,24 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="semestreIngresso">Semestre de Ingresso </label>
+					</td>
 					<td colspan="4">
 						<input type="number" 
 						id="semestreIngresso" name="semestreIngresso" placeholder="Semestre de Ingresso"
 						value='<c:out value="${aluno.semestreIngresso }"/>'
+						class="input-group input-group-lg">
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<label for="codigoCurso">Código do Curso </label>
+					</td>
+					<td colspan="4">
+						<input type="number" 
+						id="codigoCurso" name="codigoCurso" placeholder="Código do Curso"
+						value='<c:out value="${aluno.codigoCurso }"/>'
 						class="input-group input-group-lg">
 					</td>
 				</tr>
@@ -122,6 +160,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label > </label>
+					</td>
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Inserir"
@@ -171,6 +212,7 @@
 						<th>Conclusao do Segundo Grau</th>
 						<th>Ano de Ingresso</th>
 						<th>Semestre de Ingresso</th>
+						<th>Codigo do Curso</th>
 						<th>Ano Limite</th>
 						<th>Semestre Limite</th>
 						<th>RA</th>
@@ -190,6 +232,7 @@
 							<td>${a.conclEM }</td>
 							<td>${a.anoIngresso }</td>
 							<td>${a.semestreIngresso }</td>
+							<td>${a.codigoCurso }</td>
 							<td>${a.anoLimite}</td>
 							<td>${a.semestreLimite }</td>
 							<td>${a.ra }</td>

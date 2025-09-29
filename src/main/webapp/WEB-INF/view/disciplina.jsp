@@ -15,12 +15,15 @@
 		<jsp:include page="menu.jsp" />
 	</div>
 	<br />
-	<div class="conteiner" align="center">
+	<div class="container" align="center">
 		<h1>Cadastro de Disciplinas</h1>
 		<br />
 		<form action="disciplina" method="post">
 			<table>
 				<tr>
+					<td >
+						<label for="codigoDisc">Código da Disciplina </label>
+					</td>
 					<td colspan="3">
 						<input type="number" min="1" step="1"
 						id="codigoDisc" name="codigoDisc" placeholder="Código da Disciplina"
@@ -34,6 +37,9 @@
 					</td>				
 				</tr>
 				<tr>
+					<td >
+						<label for="codigoCurso">Código do Curso </label>
+					</td>
 					<td colspan="4">
 						<input type="number" min="1" step="1"
 						id="codigoCurso" name="codigoCurso" placeholder="Código do Curso"
@@ -42,6 +48,9 @@
 					</td>				
 				</tr>		
 				<tr>
+					<td >
+						<label for="nome">Nome da Disciplina </label>
+					</td>
 					<td colspan="4">
 						<input type="text" 
 						id="nome" name="nome" placeholder="Nome da Disciplina"
@@ -50,6 +59,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="inicio">Horário de Início </label>
+					</td>
 					<td colspan="4">
 						<input type="time" 
 						id="inicio" name="inicio" placeholder="Inicio"
@@ -58,6 +70,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="horasSemanais">Horas de aula semanais </label>
+					</td>
 					<td colspan="4">
 						<input type="number" 
 						id="horasSemanais" name="horasSemanais" placeholder="Horas Semanais"
@@ -66,6 +81,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label for="conteudos">Conteúdos </label>
+					</td>
 					<td colspan="4">
 						<input type="text" 
 						id="conteudos" name="conteudos" placeholder="Conteudos"
@@ -74,25 +92,28 @@
 					</td>
 				</tr>
 				<tr>
+					<td >
+						<label > </label>
+					</td>
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Inserir"
-						class="btn btn-dark">
+						class="btn btn-success">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Atualizar"
-						class="btn btn-dark">
+						class="btn btn-warning">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Excluir"
-						class="btn btn-dark">
+						class="btn btn-danger">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Listar"
-						class="btn btn-dark">
+						class="btn btn-info">
 					</td>								
 				</tr>
 			</table>

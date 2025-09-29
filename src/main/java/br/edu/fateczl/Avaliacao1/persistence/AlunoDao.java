@@ -25,7 +25,7 @@ public class AlunoDao implements ICrud<Aluno> {
 	public Aluno buscar(Aluno aluno) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
 		String sql = "SELECT cpf, nome, nomeSocial, nascimento, email, emailCorporativo, conclusaoEM, "
-				+ "anoIngresso, semestreIngresso, anoLimite, semestreLimite, ra "
+				+ "anoIngresso, semestreIngresso, codigoCurso, anoLimite, semestreLimite, ra "
 				+ "FROM aluno WHERE cpf = ?";
 		PreparedStatement ps = c.prepareStatement(sql);
 		ps.setLong(1,aluno.getCpf());
@@ -40,6 +40,7 @@ public class AlunoDao implements ICrud<Aluno> {
 			aluno.setConclusaoEM(LocalDate.parse(rs.getString("conclusaoEM")));
 			aluno.setAnoIngresso(Integer.parseInt(rs.getString("anoIngresso")));
 			aluno.setSemestreIngresso(Integer.parseInt(rs.getString("semestreIngresso")));
+			aluno.setCodigoCurso(Integer.parseInt(rs.getString("codigoCurso")));
 			aluno.setAnoLimite(Integer.parseInt(rs.getString("anoLimite")));
 			aluno.setSemestreLimite(Integer.parseInt(rs.getString("semestreLimite")));
 			aluno.setRa(rs.getString("ra"));
@@ -55,7 +56,7 @@ public class AlunoDao implements ICrud<Aluno> {
 		Connection c = gDao.getConnection();
 		String sql = "SELECT cpf, nome, nomeSocial, nascimento,"
 				+ " CONVERT(CHAR(10), nascimento, 103) AS dtNasc, email, emailCorporativo,"
-				+ " conclusaoEM, CONVERT(CHAR(10), conclusaoEM, 103) AS conclEM , anoIngresso, semestreIngresso, "
+				+ " conclusaoEM, CONVERT(CHAR(10), conclusaoEM, 103) AS conclEM , anoIngresso, semestreIngresso, codigoCurso,"
 				+ " anoLimite, semestreLimite, ra "
 				+ " FROM aluno";
 		PreparedStatement ps = c.prepareStatement(sql);
@@ -73,6 +74,7 @@ public class AlunoDao implements ICrud<Aluno> {
 			aluno.setConclEM(rs.getString("conclEM"));
 			aluno.setAnoIngresso(Integer.parseInt(rs.getString("anoIngresso")));
 			aluno.setSemestreIngresso(Integer.parseInt(rs.getString("semestreIngresso")));
+			aluno.setCodigoCurso(Integer.parseInt(rs.getString("codigoCurso")));
 			aluno.setAnoLimite(Integer.parseInt(rs.getString("anoLimite")));
 			aluno.setSemestreLimite(Integer.parseInt(rs.getString("semestreLimite")));
 			aluno.setRa(rs.getString("ra"));
@@ -88,7 +90,7 @@ public class AlunoDao implements ICrud<Aluno> {
 	@Override
 	public String inserir(Aluno aluno) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "I");
 		cs.setLong(2, aluno.getCpf());
@@ -100,13 +102,14 @@ public class AlunoDao implements ICrud<Aluno> {
 		cs.setString(8, aluno.getConclusaoEM().toString());
 		cs.setInt(9, aluno.getAnoIngresso());
 		cs.setInt(10, aluno.getSemestreIngresso());
-		cs.setInt(11, 0);
+		cs.setInt(11, aluno.getCodigoCurso());
 		cs.setInt(12, 0);
-		cs.setString(13, "");
-		cs.registerOutParameter(14, Types.VARCHAR);
+		cs.setInt(13, 0);
+		cs.setString(14, "");
+		cs.registerOutParameter(15, Types.VARCHAR);
 		cs.execute();
 		
-		String saida = cs.getString(14);
+		String saida = cs.getString(15);
 		cs.close();
 		
 		return saida;
@@ -115,7 +118,7 @@ public class AlunoDao implements ICrud<Aluno> {
 	@Override
 	public String atualizar(Aluno aluno) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "U");
 		cs.setLong(2, aluno.getCpf());
@@ -127,13 +130,14 @@ public class AlunoDao implements ICrud<Aluno> {
 		cs.setString(8, aluno.getConclusaoEM().toString());
 		cs.setInt(9, aluno.getAnoIngresso());
 		cs.setInt(10, aluno.getSemestreIngresso());
-		cs.setInt(11, 0);
+		cs.setInt(11, aluno.getCodigoCurso());
 		cs.setInt(12, 0);
-		cs.setString(13, "");
-		cs.registerOutParameter(14, Types.VARCHAR);
+		cs.setInt(13, 0);
+		cs.setString(14, "");
+		cs.registerOutParameter(15, Types.VARCHAR);
 		cs.execute();
 		
-		String saida = cs.getString(14);
+		String saida = cs.getString(15);
 		cs.close();
 		
 		return saida;
@@ -143,7 +147,7 @@ public class AlunoDao implements ICrud<Aluno> {
 	@Override
 	public String excluir(Aluno aluno) throws SQLException, ClassNotFoundException {
 		Connection c = gDao.getConnection();
-		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+		String sql = "{CALL sp_aluno(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 		CallableStatement cs = c.prepareCall(sql);
 		cs.setString(1, "D");
 		cs.setLong(2, aluno.getCpf());
@@ -158,10 +162,11 @@ public class AlunoDao implements ICrud<Aluno> {
 		cs.setNull(11, Types.VARCHAR);
 		cs.setNull(12, Types.VARCHAR);
 		cs.setNull(13, Types.VARCHAR);
-		cs.registerOutParameter(14, Types.VARCHAR);
+		cs.setNull(14, Types.VARCHAR);
+		cs.registerOutParameter(15, Types.VARCHAR);
 		cs.execute();
 		
-		String saida = cs.getString(14);
+		String saida = cs.getString(15);
 		cs.close();
 		
 		return saida;

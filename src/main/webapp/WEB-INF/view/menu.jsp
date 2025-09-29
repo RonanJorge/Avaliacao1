@@ -15,7 +15,7 @@
 				<td><a href="curso"> CADASTRAR CURSO </a></td>
 				<td><a href="disciplina"> CADASTRAR DISCIPLINA </a></td>
 				<td><a href="matricula"> MATRICULA </a></td>
-				<td><a href="disciplinaMatricula"> DISCIPLINAS MATRICULADAS </a></td>
+				<td><a href="disciplinasMatriculadas"> DISCIPLINAS MATRICULADAS </a></td>
 			</tr>
 		</table>
 	</div>

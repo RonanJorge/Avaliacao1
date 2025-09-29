@@ -15,12 +15,15 @@
 		<jsp:include page="menu.jsp" />
 	</div>
 	<br />
-	<div class="conteiner" align="center">
+	<div class="container" align="center">
 		<h1>Cadastro de Cursos</h1>
 		<br />
 		<form action="curso" method="post">
 			<table>
 				<tr>
+					<td align=right>
+						<label for="codigoCurso">Código do Curso </label>
+					</td>
 					<td colspan="3">
 						<input type="number" min="1" step="1"
 						id="codigoCurso" name="codigoCurso" placeholder="Código"
@@ -34,6 +37,9 @@
 					</td>				
 				</tr>		
 				<tr>
+					<td align=right>
+						<label for="nome">Nome do Curso </label>
+					</td>
 					<td colspan="4">
 						<input type="text" 
 						id="nome" name="nome" placeholder="Nome"
@@ -42,6 +48,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td align=right>
+						<label for="cargaHoraria">Carga Horária </label>
+					</td>
 					<td colspan="4">
 						<input type="number" 
 						id="cargaHoraria" name="cargaHoraria" placeholder="Carga Horária"
@@ -50,6 +59,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td align=right>
+						<label for="sigla">Sigla do Curso </label>
+					</td>
 					<td colspan="4">
 						<input type="text" 
 						id="sigla" name="sigla" placeholder="Sigla"
@@ -58,6 +70,9 @@
 					</td>
 				</tr>
 				<tr>
+					<td align=right>
+						<label for="notaEnade">Última nota no ENADE </label>
+					</td>
 					<td colspan="4">
 						<input type="number" 
 						id="notaEnade" name="notaEnade" placeholder="Nota Enade"
@@ -67,41 +82,44 @@
 				</tr>
 				<tr>
 					<td>
+						<label > </label>
+					</td>
+					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Inserir"
-						class="btn btn-dark">
+						class="btn btn-success">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Atualizar"
-						class="btn btn-dark">
+						class="btn btn-warning">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Excluir"
-						class="btn btn-dark">
+						class="btn btn-danger">
 					</td>								
 					<td>
 						<input type="submit"
 						id="botao" name="botao" value="Listar"
-						class="btn btn-dark">
+						class="btn btn-info">
 					</td>								
 				</tr>
 			</table>
 		</form>
 	</div>
 	<br />
-	<div class="conteiner" align="center">
+	<div class="container" align="center">
 		<c:if test="${not empty saida }">
 			<h2 style="color: blue;"><c:out value="${saida }" /></h2>
 		</c:if>
 	</div>
-	<div class="conteiner" align="center">
+	<div class="container" align="center">
 		<c:if test="${not empty erro }">
 			<h2 style="color: red;"><c:out value="${erro }" /></h2>
 		</c:if>
 	</div>
-	<div class="conteiner" align="center">
+	<div class="container" align="center">
 		<c:if test="${not empty cursos }">
 			<table class="table table-dark table-striped">
 				<thead>
