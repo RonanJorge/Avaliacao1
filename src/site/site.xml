@@ -1,0 +1,10 @@
+<project>
+  <body>
+    <menu name="Projeto Matrícula">
+      <item name="Visão Geral" href="index.html"/>
+      <item name="Dependências" href="dependencies.html"/>
+      <item name="Equipe de Desenvolvimento" href="team-list.html"/>
+      <item name="Relatório do Projeto" href="project-info.html"/>
+    </menu>
+  </body>
+</project>

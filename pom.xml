@@ -19,7 +19,17 @@
 		<license/>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+            <id>ronan</id>
+            <name>Ronan Jorge</name>
+            <email>ronan.jorge@fatec.sp.gov.br</email>
+            <roles>
+                <role>Desenvolvedor </role>
+            </roles>
+            <organization>FATEC Zona Leste</organization>
+            <organizationUrl>http://www.fateczl.edu.br</organizationUrl>
+        </developer>
+
 	</developers>
 	<scm>
 		<connection/>
@@ -113,6 +123,7 @@
 		    <artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
 	</dependencies>
+
 
 	<build>
 		<plugins>
